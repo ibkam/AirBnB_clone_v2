@@ -64,11 +64,10 @@ class FileStorage:
         self.reload()
 
     def delete(self, obj=None):
-        """
-            delete obj from __objects if it’s inside - if obj is None,
-            the method should not do anything
-        """
-        if (obj):
-            self.__objects.pop("{}.{}".format(type(obj).__name__, obj.id))
-        if (obj):
-            self.__objects.pop("{}.{}".format(type(obj).__name__, obj.id))
+    """
+    Delete obj from __objects if it’s inside. If obj is None, the method should not do anything.
+    """
+    if obj:
+        key = "{}.{}".format(type(obj).__name__, obj.id)
+        if key in self.__objects:
+            del self.__objects[key]
