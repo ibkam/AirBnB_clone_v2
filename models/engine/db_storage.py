@@ -25,8 +25,7 @@ class DBStorage:
     export MY_VARIABLE=<MY_VARIABLE_VALUE>  (Linux)
     set MY_VARIABLE=<MY_VARIABLE_VALUE>  (Windows)
     """
-
-
+    
     def __init__(self):
         """Initialize object"""
         user = os.getenv('HBNB_MYSQL_USER')
