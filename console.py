@@ -199,7 +199,6 @@ class HBNBCommand(cmd.Cmd):
                 print("** class doesn't exist **")
                 return
 
-
             # if att_name was not quoted arg
             if not att_name and args[0] is not ' ':
                 att_name = args[0]
