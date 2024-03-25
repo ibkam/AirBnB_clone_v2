@@ -49,10 +49,9 @@ class HBNBCommand(cmd.Cmd):
 
             # Isolate <class name>
             _cls = pline[:pline.find('.')]
-
             # Isolate and validate <command>
             _cmd = pline[pline.find('.') + 1:pline.find('(')]
-            if _cmd not in HBNBCommand.dot_cmds:
+            if _cmd not in HBNBCommand.dot_cmds:  # Corrected with whitespace
                 raise Exception
 
             # If parentheses contain arguments, parse them
