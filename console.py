@@ -43,14 +43,14 @@ class HBNBCommand(cmd.Cmd):
                 try:
                     for pair in args[1:]:
                         pair_split = pair.split("=")
-                        if (hasattr(new_instance, pair_split[0])):
+                        if hasattr(new_instance, pair_split[0]):
                             value = pair_split[1]
                             flag = 0
-                            if (value.startswith('"')):
+                            if value.startswith('"'):
                                 value = value.strip('"')
                                 value = value.replace("\\", "")
                                 value = value.replace("_", " ")
-                            elif ("." in value):
+                            elif "." in value:
                                 try:
                                     value = float(value)
                                 except:
@@ -60,7 +60,7 @@ class HBNBCommand(cmd.Cmd):
                                     value = int(value)
                                 except:
                                     flag = 1
-                            if (not flag):
+                            if not flag:
                                 setattr(new_instance, pair_split[0], value)
                         else:
                             continue
@@ -188,24 +188,4 @@ class HBNBCommand(cmd.Cmd):
                 args = parsed[1].split(",")
                 args = [arg.strip() for arg in args]
                 if len(args) >= 3:
-                    temp = args[2]
-                    args = [arg.strip('"') for arg in args[:2]]
-                    args.append(temp)
-                else:
-                    args = [arg.strip('"') for arg in args]
-                command = self.fetch_command(parsed[0])
-                if command:
-                    reconstructed_args = [arg for arg in args]
-                    reconstructed_args.insert(0, splited[0])
-                    reconstructed_command = " ".join(reconstructed_args)
-                    command(self, reconstructed_command)
-                else:
-                    print("*** Unknown syntax: {}".format(line))
-            else:
-                print("** class doesn't exist **")
-        else:
-            print("*** Unknown syntax: {}".format(line))
-
-
-if __name__ == "__main__":
-    HBNBCommand().cmdloop()
+                    temp = args[2
