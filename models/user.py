@@ -11,7 +11,7 @@ from os import environ
 storage_engine = environ.get("HBNB_TYPE_STORAGE")
 
 
-class User(BaseModel):
+class User(BaseModel, Base):
     """
         User class for the user
         User class for the user
